@@ -33,7 +33,7 @@ public class Alluser implements UserDetails{
     private String password; // 비밀번호
 
     @ManyToOne
-    @JoinColumn(name="place_PK")
+    @JoinColumn(name="placePK")       //07.11 place_PK -> placePK
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Place place;
 

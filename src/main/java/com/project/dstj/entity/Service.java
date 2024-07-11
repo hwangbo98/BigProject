@@ -20,6 +20,11 @@ public class Service {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Worker worker; //직원pk //담당직원
 
+    @ManyToOne
+    @JoinColumn(name="placePK")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Place place;
+
     private String serviceName; //서비스이름
 
     private String serviceDay; //서비스요일

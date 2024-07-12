@@ -22,4 +22,7 @@ public class Worker {
 
     @Column(name = "workerSalary")
     private Integer workerSalary; //직원급여
+
+    @OneToOne(mappedBy = "worker", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Service service;
 }

@@ -52,11 +52,27 @@ public class Alluser implements UserDetails{
     // @OneToMany(mappedBy = "userPK", cascade = CascadeType.REMOVE) 
     // private List<Member> memberList; 
 
+    @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Worker> workers;
+
+    // placePK를 반환하는 메서드
+    public Long getPlacePK() {
+        return place != null ? place.getPlacePK() : null;
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singletonList(new SimpleGrantedAuthority(userRole));
     }
+
+//    @Override
+//    public Collection<? extends GrantedAuthority> getAuthorities() {
+//        if (userRole == null || userRole.isEmpty()) {
+//            throw new IllegalArgumentException("A granted authority textual representation is required");
+//        }
+//        return Collections.singletonList(new SimpleGrantedAuthority(userRole));
+//    }
 
     @Override
     public boolean isAccountNonExpired() {

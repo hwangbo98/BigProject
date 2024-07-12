@@ -15,7 +15,7 @@ public class Service {
     @Column(name = "servicePK", updatable = false, unique = true, nullable = false)
     private Long servicePK;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="workerPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Worker worker; //직원pk //담당직원
@@ -32,4 +32,5 @@ public class Service {
     private String serviceStart; //시작시간
 
     private String serviceEnd; //끝시간
+
 }

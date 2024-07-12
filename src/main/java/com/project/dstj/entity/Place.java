@@ -3,6 +3,8 @@ package com.project.dstj.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -17,4 +19,10 @@ public class Place {
 
     @Column(name = "placeType")
     private String placeType; //업종
+
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Alluser> allusers;
+
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Service> services;
 }

@@ -23,7 +23,7 @@ import java.util.List;
 public class Alluser implements UserDetails{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userPk", updatable = false, unique = true, nullable = false)
+    @Column(name = "userPK", updatable = false, unique = true, nullable = false)
     private Long userPK;
 
     @Column(unique = true, nullable = false)

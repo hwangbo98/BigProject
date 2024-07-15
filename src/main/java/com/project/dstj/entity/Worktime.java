@@ -23,8 +23,8 @@ public class Worktime {
     @Column(name = "worktimeDay")
     private String worktimeDay; //날짜
 
-    @Column(name = "worktimeTime")
-    private String worktimeTime;
+    // @Column(name = "worktimeTime")
+    // private String worktimeTime;
 
     
     @Column(name = "worktimeStart")
@@ -34,7 +34,7 @@ public class Worktime {
     @Column(name = "worktimeEnd")
     private String worktimeEnd; //퇴근시간
 
-    @Column(name = "worktimeType")
-    private String worktimeType; //출근이냐? 퇴근이냐?
+    // @Column(name = "worktimeType")
+    // private String worktimeType; //출근이냐? 퇴근이냐?
 
 }

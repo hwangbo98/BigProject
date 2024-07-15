@@ -1,5 +1,9 @@
 package com.project.dstj.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +36,14 @@ public class CheckInOutService {
         Long userPK = user.getUserPK();
         Worker worker = workerRepository.findByUserPK(userPK).orElseThrow(() -> new RuntimeException("Worker not found"));
         return worker;
+    }
+
+    public void updateWorktimeEnd(LocalDate worktimeDay, Worker worker, LocalTime worktimeEnd){
+        Optional<Worktime> worktimeOptional = worktimeRepository.findByWorktimeDayAndWorker(worktimeDay, worker);
+        worktimeOptional.ifPresent(workTime -> {
+            workTime.setWorktimeEnd(worktimeEnd);
+            worktimeRepository.save(workTime);
+        });
     }
 
     public void saveWorktime(Worktime worktime){

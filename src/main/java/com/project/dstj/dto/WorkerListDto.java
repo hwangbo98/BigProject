@@ -7,27 +7,27 @@ import com.project.dstj.entity.Worktime;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
 public class WorkerListDto {
     private String userNickName;
-    private String worktimeDay;
-    private String worktimeStart;
-    private String worktimeEnd;
-    private Long placePk;
-    private Long workerPk;
-    private Integer workerSalary;
+    private LocalDate worktimeDay;
+    private LocalTime worktimeStart;
+    private LocalTime worktimeEnd;
+    private Long placePk; // 수정됨
+    private Long workerPk; // 수정됨
 
     // Entity -> DTO 변환
     public static WorkerListDto toDto(Worktime worktime) {
         WorkerListDto dto = new WorkerListDto();
         dto.setUserNickName(worktime.getWorker().getAlluser().getUserNickname());
-        dto.setWorktimeDay(worktime.getWorktimeDay().toString());
-        dto.setWorktimeStart(worktime.getWorktimeStart().toString());
-        dto.setWorktimeEnd(worktime.getWorktimeEnd().toString());
-        dto.setWorkerSalary(worktime.getWorker().getWorkerSalary());
+        dto.setWorktimeDay(worktime.getWorktimeDay());
+        dto.setWorktimeStart(worktime.getWorktimeStart());
+        dto.setWorktimeEnd(worktime.getWorktimeEnd());
         dto.setPlacePk(worktime.getWorker().getAlluser().getPlace().getPlacePK());
         dto.setWorkerPk(worktime.getWorker().getWorkerPK());
         return dto;
@@ -42,7 +42,6 @@ public class WorkerListDto {
 
         Worker worker = new Worker();
         worker.setWorkerPK(this.workerPk);
-        worker.setWorkerSalary(this.workerSalary);
 
         Alluser alluser = new Alluser();
         alluser.setUserNickname(this.userNickName);

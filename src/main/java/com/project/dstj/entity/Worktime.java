@@ -1,5 +1,8 @@
 package com.project.dstj.entity;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -21,20 +24,20 @@ public class Worktime {
     private Worker worker; //직원pk
 
     @Column(name = "worktimeDay")
-    private String worktimeDay; //날짜
+    private LocalDate worktimeDay; //날짜
 
-    @Column(name = "worktimeTime")
-    private String worktimeTime;
+    // @Column(name = "worktimeTime")
+    // private String worktimeTime;
 
     
     @Column(name = "worktimeStart")
-    private String worktimeStart; //출근시간
+    private LocalTime worktimeStart; //출근시간
 
     
     @Column(name = "worktimeEnd")
-    private String worktimeEnd; //퇴근시간
+    private LocalTime worktimeEnd; //퇴근시간
 
-    @Column(name = "worktimeType")
-    private String worktimeType; //출근이냐? 퇴근이냐?
+    // @Column(name = "worktimeType")
+    // private String worktimeType; //출근이냐? 퇴근이냐?
 
 }

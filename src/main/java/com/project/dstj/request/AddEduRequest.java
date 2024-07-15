@@ -7,19 +7,19 @@ public class AddEduRequest {
     private String eduEnd;
     private String workerId; //담당직원 id
 
-    public String getServiceName(){
+    public String getEduName(){
         return eduName;
     }
 
-    public String getServiceDay(){
+    public String getEduDay(){
         return eduDay;
     }
     
-    public String getServiceStart(){
+    public String getEduStart(){
         return eduStart;
     }
 
-    public String getServiceEnd(){
+    public String getEduEnd(){
         return eduEnd;
     }
 

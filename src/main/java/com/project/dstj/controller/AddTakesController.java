@@ -20,10 +20,10 @@ public class AddTakesController {
     public ResponseEntity<Void> addService(@RequestHeader("Authorization") String token,
     @RequestBody AddTakesRequest request){
         token = token.substring(7);
-        Long servicePK = request.getServicePK();
+        Long eduPK = request.getEduPK();
         String memberId = request.getMemberId();
         Takes takes = new Takes();
-        takes.setEdu(addTakesService.getEduByPK(servicePK));
+        takes.setEdu(addTakesService.getEduByPK(eduPK));
         takes.setMember(addTakesService.getMemberPKByMemberID(memberId));
         addTakesService.saveTakes(takes);
         return ResponseEntity.ok().build();

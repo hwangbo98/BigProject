@@ -15,7 +15,7 @@ public class Edu {
     @Column(name = "eduPK", updatable = false, unique = true, nullable = false)
     private Long eduPK;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="workerPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Worker worker; //직원pk //담당직원

@@ -49,8 +49,8 @@ public class Alluser implements UserDetails{
 
     private String refreshToken; //토큰?
 
-    // @OneToMany(mappedBy = "userPK", cascade = CascadeType.REMOVE) 
-    // private List<Member> memberList; 
+    // @OneToMany(mappedBy = "userPK", cascade = CascadeType.REMOVE)
+    // private List<Member> memberList;
 
     @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Worker> workers;

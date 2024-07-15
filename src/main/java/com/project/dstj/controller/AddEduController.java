@@ -21,10 +21,10 @@ public class AddEduController {
     @RequestBody AddEduRequest request){
         token = token.substring(7);
         Edu edu = new Edu();
-        edu.setEduName(request.getServiceName());
-        edu.setEduDay(request.getServiceDay());
-        edu.setEduStart(request.getServiceStart());
-        edu.setEduEnd(request.getServiceEnd());
+        edu.setEduName(request.getEduName());
+        edu.setEduDay(request.getEduDay());
+        edu.setEduStart(request.getEduStart());
+        edu.setEduEnd(request.getEduEnd());
         edu.setPlace(addEduService.getPlacePKByToken(token));
         edu.setWorker(addEduService.getWorkerPKByWorkerID(request.getWorkerId()));
 

@@ -1,26 +1,26 @@
 package com.project.dstj.request;
 
-public class AddServiceRequest {
-    private String serviceName;
-    private String serviceDay;
-    private String serviceStart;
-    private String serviceEnd;
+public class AddEduRequest {
+    private String eduName;
+    private String eduDay;
+    private String eduStart;
+    private String eduEnd;
     private String workerId; //담당직원 id
 
     public String getServiceName(){
-        return serviceName;
+        return eduName;
     }
 
     public String getServiceDay(){
-        return serviceDay;
+        return eduDay;
     }
     
     public String getServiceStart(){
-        return serviceStart;
+        return eduStart;
     }
 
     public String getServiceEnd(){
-        return serviceEnd;
+        return eduEnd;
     }
 
     public String getWorkerId(){

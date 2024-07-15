@@ -9,11 +9,11 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-public class Service {
+public class Edu {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "servicePK", updatable = false, unique = true, nullable = false)
-    private Long servicePK;
+    @Column(name = "eduPK", updatable = false, unique = true, nullable = false)
+    private Long eduPK;
 
     @OneToOne
     @JoinColumn(name="workerPK")
@@ -25,12 +25,11 @@ public class Service {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Place place;
 
-    private String serviceName; //서비스이름
+    private String eduName; //서비스이름
 
-    private String serviceDay; //서비스요일
+    private String eduDay; //서비스요일
 
-    private String serviceStart; //시작시간
+    private String eduStart; //시작시간
 
-    private String serviceEnd; //끝시간
-
+    private String eduEnd; //끝시간
 }

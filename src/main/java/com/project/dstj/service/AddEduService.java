@@ -4,21 +4,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.dstj.entity.Alluser;
+import com.project.dstj.entity.Edu;
 import com.project.dstj.entity.Place;
 import com.project.dstj.entity.Worker;
 import com.project.dstj.repository.AlluserRepository;
+import com.project.dstj.repository.EduRepository;
 import com.project.dstj.repository.PlaceRepository;
-import com.project.dstj.repository.ServiceRepository;
 import com.project.dstj.repository.WorkerRepository;
 import com.project.dstj.security.JwtTokenProvider;
 
 @Service
-public class AddServiceService {
+public class AddEduService {
     @Autowired
     private JwtTokenProvider jwtTokenProvider;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private EduRepository eduRepository;
 
     @Autowired
     private AlluserRepository allUserRepository;
@@ -46,7 +47,7 @@ public class AddServiceService {
         return worker;
     }
 
-    public void saveService(com.project.dstj.entity.Service service){
-        serviceRepository.save(service);
+    public void saveEdu(Edu edu){
+        eduRepository.save(edu);
     }
 }

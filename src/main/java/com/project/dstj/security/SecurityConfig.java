@@ -23,9 +23,10 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/sign-in").permitAll()
-                        .requestMatchers("/auth/sign-up").permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers("/**").permitAll()
+                                .anyRequest().permitAll()
+//                        .requestMatchers("/auth/sign-up").permitAll()
+//                        .anyRequest().authenticated()
                 )
                 .httpBasic(httpBasic -> httpBasic.disable())
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);

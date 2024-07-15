@@ -45,7 +45,6 @@ public class JwtTokenProvider {
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
-
         long now = (new Date()).getTime();
 
         // Access Token 생성
@@ -67,6 +66,7 @@ public class JwtTokenProvider {
                 .grantType("Bearer")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .grantedAuthorities(authorities)
                 .build();
     }
 
@@ -122,4 +122,13 @@ public class JwtTokenProvider {
             return e.getClaims();
         }
     }
+
+
+    // JWT 토큰에서 사용자 이름 추출 메서드 추가
+    public String getUsernameFromJWT(String token) {
+//        Claims claims = parseClaims(token);
+//        return claims.getSubject();
+        return parseClaims(token).getSubject();
+    }
+
 }

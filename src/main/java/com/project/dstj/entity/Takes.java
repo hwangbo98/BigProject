@@ -18,13 +18,13 @@ public class Takes {
     @ManyToOne
     @JoinColumn(name="eduPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Edu edu;
+    private Edu edu; //서비스pk
 
     @ManyToOne
     @JoinColumn(name="memberPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Member member;
+    private Member member; //회원pk
 
-    @Column(name = "takes_result")
-    private String takesResult;
+    @Column(name = "takesResult")
+    private String takesResult; //직원급여
 }

@@ -1,10 +1,10 @@
 package com.project.dstj.service;
 
 import com.project.dstj.dto.JwtToken;
-import com.project.dstj.dto.MemberDto;
+import com.project.dstj.dto.AlluserDto;
 import com.project.dstj.dto.SignUpDto;
-import com.project.dstj.entity.Member;
-import com.project.dstj.repository.MemberRepository;
+import com.project.dstj.entity.Alluser;
+import com.project.dstj.repository.AlluserRepository;
 import com.project.dstj.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,8 +21,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 @Slf4j
-public class MemberService{
-    private final MemberRepository memberRepository;
+public class AlluserService {
+    private final AlluserRepository alluserRepository;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
@@ -39,24 +39,24 @@ public class MemberService{
         // 3. 인증 정보를 기반으로 JWT 토큰 생성
         JwtToken jwtToken = jwtTokenProvider.generateToken(authentication);
 
-        Optional<Member> memberOptional = memberRepository.findByUsername(username);
-        if (memberOptional.isPresent()) {
-            Member member = memberOptional.get();
-            member.setRefreshToken(jwtToken.getRefreshToken());
-            memberRepository.save(member); // 변경 사항을 데이터베이스에 저장
+        Optional<Alluser> alluserOptional = alluserRepository.findByUsername(username);
+        if (alluserOptional.isPresent()) {
+            Alluser alluser = alluserOptional.get();
+            alluser.setRefreshToken(jwtToken.getRefreshToken());
+            alluserRepository.save(alluser); // 변경 사항을 데이터베이스에 저장
         }
 
         return jwtToken;
     }
 
     @Transactional
-    public MemberDto signUp(SignUpDto signUpDto) {
-        if (memberRepository.existsByUsername(signUpDto.getUsername())) {
+    public AlluserDto signUp(SignUpDto signUpDto) {
+        if (alluserRepository.existsByUsername(signUpDto.getUsername())) {
             throw new IllegalArgumentException("이미 사용 중인 사용자 이름입니다.");
         }
         // Password 암호화
         String encodedPassword = passwordEncoder.encode(signUpDto.getPassword());
-        String role = signUpDto.getRole();  // USER 권한 부여
-        return MemberDto.toDto(memberRepository.save(signUpDto.toEntity(encodedPassword, role)));
+        String userRole = signUpDto.getUserRole();  // USER 권한 부여
+        return AlluserDto.toDto(alluserRepository.save(signUpDto.toEntity(encodedPassword, userRole)));
     }
 }

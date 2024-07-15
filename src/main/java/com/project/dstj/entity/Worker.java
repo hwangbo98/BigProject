@@ -9,16 +9,20 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-public class Member {
+public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "memberPK", updatable = false, unique = true, nullable = false)
-    private Long memberPK;
+    @Column(name = "workerPK", updatable = false, unique = true, nullable = false)
+    private Long workerPK;
 
     @ManyToOne
     @JoinColumn(name="userPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Alluser alluser; //유저pk
 
-    private String text; //빈칸
+    @Column(name = "workerSalary")
+    private Integer workerSalary; //직원급여
+
+    @OneToOne(mappedBy = "worker", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Service service;
 }

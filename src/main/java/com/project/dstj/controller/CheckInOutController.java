@@ -6,13 +6,11 @@ import java.time.LocalTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.dstj.entity.Worker;
 import com.project.dstj.entity.Worktime;
-import com.project.dstj.request.CheckInOutRequest;
 import com.project.dstj.service.CheckInOutService;
 
 @RestController

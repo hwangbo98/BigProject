@@ -4,7 +4,7 @@ public class AddTakesRequest {
     private Long eduPK;
     private String memberId;
 
-    public Long getServicePK(){
+    public Long getEduPK(){
         return eduPK;
     }
     

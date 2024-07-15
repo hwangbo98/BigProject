@@ -6,6 +6,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
 @Entity
 @Getter
 @Setter
@@ -23,6 +24,6 @@ public class Worker {
     @Column(name = "workerSalary")
     private Integer workerSalary; //직원급여
 
-    @OneToOne(mappedBy = "worker", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Edu edu;
+    @OneToMany(mappedBy = "worker", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Edu> edus;
 }

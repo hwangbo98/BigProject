@@ -1,5 +1,7 @@
 package com.project.dstj.service;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,14 +38,14 @@ public class CheckInOutService {
         return worker;
     }
 
-    public void updateWorktimeEnd(String worktimeDay, Worker worker, String worktimeEnd){
+    public void updateWorktimeEnd(LocalDate worktimeDay, Worker worker, LocalTime worktimeEnd){
         Optional<Worktime> worktimeOptional = worktimeRepository.findByWorktimeDayAndWorker(worktimeDay, worker);
-        worktimeOptional.ifPresent(worktime -> {
-            worktime.setWorktimeEnd(worktimeEnd);
-            worktimeRepository.save(worktime);
+        worktimeOptional.ifPresent(workTime -> {
+            workTime.setWorktimeEnd(worktimeEnd);
+            worktimeRepository.save(workTime);
         });
     }
-    
+
     public void saveWorktime(Worktime worktime){
         worktimeRepository.save(worktime);
     }

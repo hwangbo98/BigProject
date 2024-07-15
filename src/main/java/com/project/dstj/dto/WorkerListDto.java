@@ -7,15 +7,17 @@ import com.project.dstj.entity.Worktime;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Getter
 @Setter
 public class WorkerListDto {
     private String userNickName;
-    private String worktimeDay;
-    private String worktimeStart;
-    private String worktimeEnd;
+    private LocalDate worktimeDay;
+    private LocalTime worktimeStart;
+    private LocalTime worktimeEnd;
     private Long placePk; // 수정됨
     private Long workerPk; // 수정됨
 
@@ -23,9 +25,9 @@ public class WorkerListDto {
     public static WorkerListDto toDto(Worktime worktime) {
         WorkerListDto dto = new WorkerListDto();
         dto.setUserNickName(worktime.getWorker().getAlluser().getUserNickname());
-        dto.setWorktimeDay(worktime.getWorktimeDay().toString());
-        dto.setWorktimeStart(worktime.getWorktimeStart().toString());
-        dto.setWorktimeEnd(worktime.getWorktimeEnd().toString());
+        dto.setWorktimeDay(worktime.getWorktimeDay());
+        dto.setWorktimeStart(worktime.getWorktimeStart());
+        dto.setWorktimeEnd(worktime.getWorktimeEnd());
         dto.setPlacePk(worktime.getWorker().getAlluser().getPlace().getPlacePK());
         dto.setWorkerPk(worktime.getWorker().getWorkerPK());
         return dto;

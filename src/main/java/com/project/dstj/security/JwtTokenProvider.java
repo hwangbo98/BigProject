@@ -19,6 +19,7 @@ import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -45,8 +46,11 @@ public class JwtTokenProvider {
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.joining(","));
-
         long now = (new Date()).getTime();
+
+        List<String> grantedAuthorities = authentication.getAuthorities().stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
 
         // Access Token 생성
         Date accessTokenExpiresIn = new Date(now + expirationTime);
@@ -67,6 +71,7 @@ public class JwtTokenProvider {
                 .grantType("Bearer")
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
+                .grantedAuthorities(grantedAuthorities)
                 .build();
     }
 

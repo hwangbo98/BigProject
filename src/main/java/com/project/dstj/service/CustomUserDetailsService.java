@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -28,8 +27,8 @@ public class CustomUserDetailsService implements UserDetailsService {
         Alluser alluser = alluserRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
-        //worker 권한 설정
-        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("worker");
+        //권한 설정
+        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(alluser.getUserRole());
         // UserDetails 객체로 변환
         return new org.springframework.security.core.userdetails.User(
                 alluser.getUsername(),

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
 
 @Builder
 @Data
@@ -13,5 +12,5 @@ public class JwtToken {
     private String grantType;
     private String accessToken;
     private String refreshToken;
-    private List<String> grantedAuthorities;
+    private String grantedAuthorities;
 }

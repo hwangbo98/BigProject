@@ -1,5 +1,7 @@
 package com.project.dstj.entity;
 
+import java.util.List;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -26,5 +28,8 @@ public class Takes {
     private Member member; //회원pk
 
     @Column(name = "takesResult")
-    private String takesResult; //직원급여
+    private String takesResult;
+
+    @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Test> tests;
 }

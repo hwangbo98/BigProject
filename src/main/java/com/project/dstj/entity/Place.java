@@ -24,5 +24,5 @@ public class Place {
     private List<Alluser> allusers;
 
     @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Service> services;
+    private List<Edu> edus;
 }

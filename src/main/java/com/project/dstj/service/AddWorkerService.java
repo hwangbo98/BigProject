@@ -1,11 +1,9 @@
 package com.project.dstj.service;
 
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.dstj.dto.PlaceDto;
 import com.project.dstj.entity.Alluser;
 import com.project.dstj.entity.Worker;
 import com.project.dstj.entity.Place;
@@ -13,7 +11,6 @@ import com.project.dstj.repository.AlluserRepository;
 import com.project.dstj.repository.PlaceRepository;
 import com.project.dstj.repository.WorkerRepository;
 import com.project.dstj.security.JwtTokenProvider;
-import java.util.List;
 
 
 @Service

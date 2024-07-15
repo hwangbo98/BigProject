@@ -18,8 +18,9 @@ public class WorkerListDto {
     private LocalDate worktimeDay;
     private LocalTime worktimeStart;
     private LocalTime worktimeEnd;
-    private Long placePk; // 수정됨
-    private Long workerPk; // 수정됨
+    private Long placePk;
+    private Long workerPk;
+    private Integer workerSalary;
 
     // Entity -> DTO 변환
     public static WorkerListDto toDto(Worktime worktime) {
@@ -28,6 +29,7 @@ public class WorkerListDto {
         dto.setWorktimeDay(worktime.getWorktimeDay());
         dto.setWorktimeStart(worktime.getWorktimeStart());
         dto.setWorktimeEnd(worktime.getWorktimeEnd());
+        dto.setWorkerSalary(worktime.getWorker().getWorkerSalary());
         dto.setPlacePk(worktime.getWorker().getAlluser().getPlace().getPlacePK());
         dto.setWorkerPk(worktime.getWorker().getWorkerPK());
         return dto;
@@ -42,6 +44,7 @@ public class WorkerListDto {
 
         Worker worker = new Worker();
         worker.setWorkerPK(this.workerPk);
+        worker.setWorkerSalary(this.workerSalary);
 
         Alluser alluser = new Alluser();
         alluser.setUserNickname(this.userNickName);

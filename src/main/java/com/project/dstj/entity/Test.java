@@ -29,7 +29,6 @@ public class Test {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Takes takes; //takes PK
 
-
     @Column(name = "testDay")
     private LocalDate testDay; //시험날짜
 

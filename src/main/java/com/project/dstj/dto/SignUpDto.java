@@ -19,9 +19,11 @@ public class SignUpDto {
     private String userPhoneNumber;
     private String profileImg;
     private String userRole;
+    private String placeName; // 추가된 코드
+    private String placeType; // 추가된 코드
+
 
     public Alluser toEntity(String encodedPassword, String userRole) {
-
         return Alluser.builder()
                 .username(username)
                 .password(encodedPassword)
@@ -32,4 +34,5 @@ public class SignUpDto {
                 .userRole(userRole)
                 .build();
     }
+
 }

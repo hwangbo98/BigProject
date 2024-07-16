@@ -24,7 +24,7 @@ public class S3Upload {
     private AmazonS3 amazonS3;
 
     public String upload(MultipartFile multipartFile) throws IOException {
-        String s3FileName = UUID.randomUUID() + "-" + multipartFile.getOriginalFilename();
+        String s3FileName =multipartFile.getOriginalFilename();
 
         ObjectMetadata objMeta = new ObjectMetadata();
         objMeta.setContentLength(multipartFile.getInputStream().available());

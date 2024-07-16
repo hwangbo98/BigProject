@@ -2,7 +2,7 @@ package com.project.dstj.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -29,7 +29,7 @@ public class Ac {
 
     private String acParent; //학부모번호
 
-    private LocalDateTime acDate; //가입일
+    private LocalDate acDate; //작성일
 
-    private String acSignificant; //특이사항
+    // private String acSignificant; //특이사항
 }

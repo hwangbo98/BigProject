@@ -20,7 +20,7 @@ public class MemberReportController {
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
-    @GetMapping("/member/report") // 개인리포트
+    @GetMapping("/members/report") // 개인리포트
     public List<TestListDto> getMemberReport(@RequestHeader("Authorization") String token) {
         // 토큰에서 Bearer 제거
         token = token.substring(7);

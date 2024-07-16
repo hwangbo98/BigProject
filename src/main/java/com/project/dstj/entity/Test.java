@@ -13,6 +13,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Entity
 @Getter
 @Setter
@@ -29,7 +31,7 @@ public class Test {
 
 
     @Column(name = "testDay")
-    private String testDay; //시험날짜
+    private LocalDate testDay; //시험날짜
 
     @Column(name = "testName")
     private String testName; //시험이름

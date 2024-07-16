@@ -17,6 +17,7 @@ public class Takes {
     @Column(name = "takesPK", updatable = false, unique = true, nullable = false)
     private Long takesPK;
 
+
     @ManyToOne
     @JoinColumn(name="eduPK")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -27,9 +28,9 @@ public class Takes {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member; //회원pk
 
-    @Column(name = "takesResult")
-    private String takesResult;
+    // @Column(name = "takesResult")
+    // private String takesResult;
 
-    @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Test> tests;
+    // @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Test> tests;
 }

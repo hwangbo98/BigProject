@@ -20,9 +20,9 @@ public class Place {
     @Column(name = "placeType")
     private String placeType; //업종
 
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Alluser> allusers;
+    // @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Alluser> allusers;
 
-    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Edu> edus;
+    // @OneToMany(mappedBy = "place", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Edu> edus;
 }

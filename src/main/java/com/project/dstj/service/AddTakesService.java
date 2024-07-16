@@ -1,6 +1,7 @@
 package com.project.dstj.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.project.dstj.entity.Alluser;
 import com.project.dstj.entity.Edu;
@@ -12,6 +13,7 @@ import com.project.dstj.repository.MemberRepository;
 import com.project.dstj.repository.TakesRepository;
 
 @org.springframework.stereotype.Service
+@Transactional
 public class AddTakesService {
 
     @Autowired

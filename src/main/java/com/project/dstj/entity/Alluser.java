@@ -52,8 +52,11 @@ public class Alluser implements UserDetails{
     // @OneToMany(mappedBy = "userPK", cascade = CascadeType.REMOVE)
     // private List<Member> memberList;
 
-    @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Worker> workers;
+    // @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Worker> workers;
+
+    // @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    // private List<Member> members;
 
     // placePK를 반환하는 메서드
     public Long getPlacePK() {

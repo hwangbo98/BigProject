@@ -22,10 +22,6 @@ public class DelEduController {
     public ResponseEntity<Void> delEdu(@RequestHeader("Authorization") String token,
     @RequestBody DelEduRequest request){
         Long eduPK = request.getEduPK();
-        System.out.println(eduPK);
-        System.out.println(eduPK);
-        System.out.println(eduPK);
-        System.out.println(eduPK);
         Edu edu = eduRepository.findByEduPK(eduPK).orElseThrow(() -> new RuntimeException("Edu not found"));
         eduRepository.delete(edu);
 

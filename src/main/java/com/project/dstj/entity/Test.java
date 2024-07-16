@@ -1,5 +1,7 @@
 package com.project.dstj.entity;
 
+import java.time.LocalDate;
+
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -28,7 +30,7 @@ public class Test {
     private Takes takes; //takes PK
 
     @Column(name = "testDay")
-    private String testDay; //시험날짜
+    private LocalDate testDay; //시험날짜
 
     @Column(name = "testName")
     private String testName; //시험이름

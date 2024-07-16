@@ -2,7 +2,8 @@ package com.project.dstj.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+
+import java.time.LocalDate;
 
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -21,5 +22,5 @@ public class Attendance {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member; //회원pk
 
-    private LocalDateTime createDate;
+    private LocalDate createDate;
 }

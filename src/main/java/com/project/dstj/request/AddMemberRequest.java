@@ -6,7 +6,7 @@ public class AddMemberRequest {
     private String userNickname;
     private String userAddress;
     private String userPhoneNumber;
-
+    private String userSignificant;
     public String getUsername(){
         return username;
     }
@@ -26,5 +26,8 @@ public class AddMemberRequest {
     }
     public String getUserPhoneNumber(){
         return userPhoneNumber;
+    }
+    public String getUserSignificant(){
+        return userSignificant;
     }
 }

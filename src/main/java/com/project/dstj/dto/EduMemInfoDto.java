@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 @Builder
 @AllArgsConstructor
-public class MemberInfoInquiryDto {
-    private UserInfoDto meminfo;
+public class EduMemInfoDto {
+    private Long userPK;
+    private String username;
     private Long takesPK;
 }

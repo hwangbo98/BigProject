@@ -1,6 +1,7 @@
 package com.project.dstj.controller;
 
-import com.project.dstj.entity.Member;
+import com.project.dstj.dto.EduMemInfoDto;
+import com.project.dstj.entity.Takes;
 import com.project.dstj.service.EduInquiryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,40 +19,16 @@ public class EduInquireController {
     private EduInquiryService eduInquiryService;
 
     @GetMapping("/{eduPk}/members")
-    public ApiResponse<List<MemberDto>> getMembersByEduPk(@PathVariable Long eduPk) {
+    public ApiResponse<List<EduMemInfoDto>> getMembersByEduPk(@PathVariable Long eduPk) {
         log.info("getMembersByEduPk {}", eduPk);
-        List<Member> members = eduInquiryService.getMembersByEduPk(eduPk);
-        List<MemberDto> memberDtos = members.stream()
-                .map(member -> new MemberDto(member.getMemberPK(), member.getAlluser().getUsername()))
+        List<Takes> takesList = eduInquiryService.getTakesByEduPk(eduPk);
+        List<EduMemInfoDto> memberDtos = takesList.stream()
+                .map(takes -> new EduMemInfoDto(
+                        takes.getMember().getAlluser().getUserPK(),
+                        takes.getMember().getAlluser().getUsername(),
+                        takes.getTakesPK()))
                 .collect(Collectors.toList());
         return new ApiResponse<>(memberDtos);
-    }
-
-    public static class MemberDto {
-        private Long memberPk;
-        private String username;
-
-        public MemberDto(Long memberPk, String username) {
-            this.memberPk = memberPk;
-            this.username = username;
-        }
-
-        // Getters and Setters
-        public Long getMemberPk() {
-            return memberPk;
-        }
-
-        public void setMemberPk(Long memberPk) {
-            this.memberPk = memberPk;
-        }
-
-        public String getUsername() {
-            return username;
-        }
-
-        public void setUsername(String username) {
-            this.username = username;
-        }
     }
 
     public static class ApiResponse<T> {

@@ -4,11 +4,12 @@ public class AddTakesRequest {
     private Long eduPK;
     private String memberId;
 
-    public Long getEduPK(){
+    public Long getEduPK() {
         return eduPK;
     }
-    
-    public String getMemberId(){
+
+    public String getMemberId() {
         return memberId;
     }
+
 }

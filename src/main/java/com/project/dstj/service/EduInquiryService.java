@@ -30,9 +30,16 @@ public class EduInquiryService {
                 .orElseThrow(() -> new RuntimeException("Edu not found"));
 
         List<Takes> allTakes = takesRepository.findByEduEduPK(edu.getEduPK());
-        List<Member> members = allTakes.stream()
+        return allTakes.stream()
                 .map(Takes::getMember)
                 .collect(Collectors.toList());
-        return members;
+    }
+
+    // 새로운 메서드 추가
+    public List<Takes> getTakesByEduPk(Long eduPk) {
+        Edu edu = eduRepository.findById(eduPk)
+                .orElseThrow(() -> new RuntimeException("Edu not found"));
+
+        return takesRepository.findByEduEduPK(edu.getEduPK());
     }
 }

@@ -28,7 +28,7 @@ public class AddEduRequest {
         return workerId;
     }
 
-    public Long getEdTuition(){
+    public Long getEduTuition(){
         return eduTuition;
     }
 }

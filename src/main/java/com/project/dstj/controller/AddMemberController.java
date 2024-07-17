@@ -5,6 +5,7 @@ import java.io.InputStream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -24,6 +25,9 @@ public class AddMemberController {
     private AddMemberService addMemberService;
 
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     private S3Upload s3Upload;
 
     @PostMapping(value = "/add_member", consumes = "application/json")
@@ -33,11 +37,11 @@ public class AddMemberController {
 
         Alluser allUser = new Alluser();
         allUser.setUsername(request.getUsername());
-        allUser.setPassword(request.getPassword());
+        allUser.setPassword(passwordEncoder.encode(request.getPassword()));
         allUser.setUserNickname(request.getUserNickname());
         allUser.setUserAddress(request.getUserAddress());
         allUser.setUserPhoneNumber(request.getUserPhoneNumber());
-        allUser.setUserRole("member");
+        allUser.setUserRole("Member");
         allUser.setPlace(addMemberService.getPlacePKByToken(token));
 
         Member member = new Member();

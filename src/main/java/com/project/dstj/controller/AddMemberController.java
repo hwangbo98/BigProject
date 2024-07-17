@@ -41,7 +41,8 @@ public class AddMemberController {
         allUser.setPlace(addMemberService.getPlacePKByToken(token));
 
         Member member = new Member();
-
+        member.setSignificant(request.getUserSignificant());
+        
         addMemberService.saveMember(allUser, member);
 
         return ResponseEntity.ok().build();

@@ -20,5 +20,5 @@ public class Member {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Alluser alluser; //유저pk
 
-    private String text; //빈칸
+    private String significant; //빈칸
 }

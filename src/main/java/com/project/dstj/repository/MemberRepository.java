@@ -16,4 +16,5 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     // dev 버전
     @Query("SELECT m FROM Member m WHERE m.alluser.userPK = :userPK")
     Optional<Member> findByUserPK(@Param("userPK") Long userPK);
+
 }

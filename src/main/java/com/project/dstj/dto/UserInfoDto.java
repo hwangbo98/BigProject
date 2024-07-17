@@ -29,7 +29,7 @@ public class UserInfoDto {
     private String acClass;
     private String acParent;
     private String acDate;
-    private String acSignificant;
+    // private String acSignificant;
 
 
     public static UserInfoDto toDto(Alluser alluser, Ac ac, Hc hc, Test test) {
@@ -51,7 +51,6 @@ public class UserInfoDto {
                 .acClass(ac != null ? ac.getAcClass() : null)
                 .acParent(ac != null ? ac.getAcParent() : null)
                 .acDate(ac != null ? ac.getAcDate().toString() : null)
-                .acSignificant(ac != null ? ac.getAcSignificant() : null)
                 .build();
     }
 }

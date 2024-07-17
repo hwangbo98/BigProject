@@ -17,7 +17,9 @@ public interface MemberRepository extends JpaRepository<Member, Long> {
     @Query("SELECT m FROM Member m WHERE m.alluser.userPK = :userPK")
     Optional<Member> findByUserPK(@Param("userPK") Long userPK);
 
-    List<Member> findByAlluser_Place_PlacePK(Long placePK); // place별 memberList 불러오는 것
+//    List<Member> findByAlluser_Place_PlacePK(Long placePK);
 
+    @Query("SELECT m FROM Member m LEFT JOIN FETCH m.attendance a WHERE m.alluser.place.placePK = :placePK AND LOWER(m.alluser.userRole) = 'member'")
+    List<Member> findMembersWithAttendanceByPlacePK(@Param("placePK") Long placePK); // place별 memberList 불러오는 것
 
 }

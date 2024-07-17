@@ -43,7 +43,7 @@ public class MemberListController {
         Long placePK = user.getPlace().getPlacePK();
 
         // 회원 리스트 정보 가져오기
-        return memberListService.getMembersListPlacePK(placePK);
+        return memberListService.getMemberListByPlacePK(placePK);
     }
 
 }

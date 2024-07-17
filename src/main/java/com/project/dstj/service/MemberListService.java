@@ -25,14 +25,16 @@ public class MemberListService {
         return alluserRepository.findByUsername(username).orElse(null);
     }
 
-    public List<MemberListDto> getMembersListPlacePK(Long placePK) {
-        List<Member> members = memberRepository.findByAlluser_Place_PlacePK(placePK);
 
-        return members.stream()
-                .flatMap(member -> member.getAttendance().stream()
-                        .map(attendance -> MemberListDto.toDto(member, attendance)))
+    public List<MemberListDto> getMemberListByPlacePK(Long placePK) {
+        return memberRepository.findMembersWithAttendanceByPlacePK(placePK).stream()
+                .map(member -> {
+                    Attendance attendance = member.getAttendance().isEmpty() ? null : member.getAttendance().get(0);
+                    return MemberListDto.toDto(member, attendance);
+                })
                 .collect(Collectors.toList());
     }
+
 
 
 }

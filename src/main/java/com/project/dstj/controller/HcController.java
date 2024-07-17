@@ -27,6 +27,7 @@ public class HcController {
     @PostMapping(value = "/add_hc", consumes = "application/json")
     public ResponseEntity<Void> addTest(@RequestBody AddHcRequest request){
         Hc hc = new Hc();
+        hc.setHcSex(request.getHcSex());
         hc.setHcHeight(request.getHcHeight());
         hc.setHcWeight(request.getHcWeight());
         LocalDate hcDate = LocalDate.now();

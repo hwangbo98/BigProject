@@ -22,6 +22,8 @@ public class Hc {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Member member; //회원pk
 
+    private String hcSex; //성별
+
     private Float hcHeight; //키
 
     private Float hcWeight; //몸무게

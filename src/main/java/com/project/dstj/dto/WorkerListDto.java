@@ -14,6 +14,7 @@ import java.time.LocalTime;
 @Getter
 @Setter
 public class WorkerListDto {
+    // 직원 출퇴근, 월급 정보
     private String userNickName;
     private LocalDate worktimeDay;
     private LocalTime worktimeStart;

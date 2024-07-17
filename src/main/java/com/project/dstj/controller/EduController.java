@@ -21,10 +21,5 @@ public class EduController {
         return eduInfoService.getEduByToken(token);
     }
 
-    // 새로운 Service 엔티티를 생성
-    @PostMapping
-    public EduDto createService(@RequestBody EduDto eduDto) {
-        return eduInfoService.createService(eduDto);
-    }
 }
 

@@ -31,6 +31,6 @@ public class Takes {
     // @Column(name = "takesResult")
     // private String takesResult;
 
-    // @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<Test> tests;
+     @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
+     private List<Test> tests;
 }

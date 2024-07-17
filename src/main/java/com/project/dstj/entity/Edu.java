@@ -6,6 +6,8 @@ import org.hibernate.annotations.OnDeleteAction;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -32,4 +34,7 @@ public class Edu {
     private String eduStart; //시작시간
 
     private String eduEnd; //끝시간
+
+    @OneToMany(mappedBy = "edu", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Takes> takes;
 }

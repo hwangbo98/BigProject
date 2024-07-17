@@ -13,19 +13,20 @@ import java.util.stream.Collectors;
 
 @Service
 public class TestListService {
-    @Autowired
-    private TestRepository testRepository;
+    private final TestRepository testRepository;
+    private final AlluserRepository alluserRepository;
 
-    @Autowired
-    private AlluserRepository alluserRepository;
-
-    public Alluser findByUsername(String username) {
-        Optional<Alluser> user = alluserRepository.findByUsername(username);
-        return user.orElseThrow(() -> new RuntimeException("User not found"));
+    public TestListService(TestRepository testRepository, AlluserRepository alluserRepository) {
+        this.testRepository = testRepository;
+        this.alluserRepository = alluserRepository;
     }
 
-    public List<TestListDto> getMemberReportByPlacePkAndMemberPk(Long placePK, Long memberPK) {
-        return testRepository.findByTakes_Member_Alluser_Place_PlacePKAndTakes_Member_MemberPK(placePK, memberPK)
+    public Alluser findByUsername(String username) {
+        return alluserRepository.findByUsername(username).orElse(null);
+    }
+
+    public List<TestListDto> getMemberReportByPlacePKAndUserPK(Long placePK, Long userPK) {
+        return testRepository.findByTakes_Member_Alluser_Place_PlacePKAndTakes_Member_Alluser_UserPK(placePK, userPK)
                 .stream()
                 .map(TestListDto::toDto)
                 .collect(Collectors.toList());

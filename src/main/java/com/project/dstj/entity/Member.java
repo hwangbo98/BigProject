@@ -6,6 +6,8 @@ import org.hibernate.annotations.OnDeleteAction;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -21,4 +23,7 @@ public class Member {
     private Alluser alluser; //유저pk
 
     private String significant; //빈칸
+
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Takes> takes;
 }

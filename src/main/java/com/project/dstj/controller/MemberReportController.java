@@ -35,11 +35,11 @@ public class MemberReportController {
             return List.of();
         }
 
-        // 사용자 정보에서 placePK와 memberPK 추출
+        // 사용자 정보에서 placePK와 userPk 추출
         Long placePK = user.getPlace().getPlacePK();
-        Long memberPK = user.getMembers().stream().findFirst().get().getMemberPK();
+        Long userPK = user.getUserPK();
 
         // 보고서 정보 가져오기
-        return testListService.getMemberReportByPlacePkAndMemberPk(placePK, memberPK);
+        return testListService.getMemberReportByPlacePKAndUserPK(placePK, userPK);
     }
 }

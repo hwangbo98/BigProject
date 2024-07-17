@@ -54,8 +54,8 @@ public class Alluser implements UserDetails{
     @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Member> members;
 
-    // @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
-    // private List<Worker> workers;
+     @OneToMany(mappedBy = "alluser", cascade = CascadeType.ALL, orphanRemoval = true)
+     private List<Worker> workers;
 
     // @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     // private List<Member> members;

@@ -1,5 +1,7 @@
 package com.project.dstj.controller;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,6 +26,8 @@ public class AddTakesController {
         String memberId = request.getMemberId();
         Takes takes = new Takes();
         takes.setEdu(addTakesService.getEduByPK(eduPK));
+        LocalDate takesAdddate = LocalDate.now();
+        takes.setTakesAdddate(takesAdddate); 
         takes.setMember(addTakesService.getMemberPKByMemberID(memberId));
         addTakesService.saveTakes(takes);
         return ResponseEntity.ok().build();

@@ -1,5 +1,6 @@
 package com.project.dstj.entity;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.hibernate.annotations.OnDelete;
@@ -30,6 +31,7 @@ public class Takes {
 
     // @Column(name = "takesResult")
     // private String takesResult;
+    LocalDate takesAdddate;
 
      @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<Test> tests;

@@ -24,10 +24,10 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 @Slf4j
 public class AlluserService {
-    private final AlluserRepository alluserRepository; // 원본코드
-    private final AuthenticationManagerBuilder authenticationManagerBuilder; // 원본코드
-    private final JwtTokenProvider jwtTokenProvider; // 원본코드
-    private final PasswordEncoder passwordEncoder; // 원본코드
+    private final AlluserRepository alluserRepository;
+    private final AuthenticationManagerBuilder authenticationManagerBuilder;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;
     private final PlaceRepository placeRepository; // 추가된 코드
 
     @Transactional
@@ -48,6 +48,7 @@ public class AlluserService {
         if (alluserOptional.isPresent()) {
             Alluser alluser = alluserOptional.get();
             alluser.setRefreshToken(jwtToken.getRefreshToken());
+            jwtToken.setPlaceType(alluser.getPlace().getPlaceType()); // placeType 추가
             alluserRepository.save(alluser); // 변경 사항을 데이터베이스에 저장
         }
 
@@ -67,7 +68,7 @@ public class AlluserService {
         String userRole = signUpDto.getUserRole();  // USER 권한 부여
         // 원본코드 끝
 
-        // 추가된 코드 시작
+        // 추가된 코드
         // Place 저장 로직 추가
         Place place = new Place();
         place.setPlaceName(signUpDto.getPlaceName());

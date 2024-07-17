@@ -35,6 +35,8 @@ public class Edu {
 
     private String eduEnd; //끝시간
 
+    private Long eduTuition; //수강료
+
     @OneToMany(mappedBy = "edu", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Takes> takes;
 }

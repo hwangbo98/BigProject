@@ -6,6 +6,7 @@ public class AddEduRequest {
     private String eduStart;
     private String eduEnd;
     private String workerId; //담당직원 id
+    private Long eduTuition;
 
     public String getEduName(){
         return eduName;
@@ -25,5 +26,9 @@ public class AddEduRequest {
 
     public String getWorkerId(){
         return workerId;
+    }
+
+    public Long getEdTuition(){
+        return eduTuition;
     }
 }

@@ -25,6 +25,7 @@ public class AddEduController {
         edu.setEduDay(request.getEduDay());
         edu.setEduStart(request.getEduStart());
         edu.setEduEnd(request.getEduEnd());
+        edu.setEduTuition(request.getEdTuition());
         edu.setPlace(addEduService.getPlacePKByToken(token));
         edu.setWorker(addEduService.getWorkerPKByWorkerID(request.getWorkerId()));
 

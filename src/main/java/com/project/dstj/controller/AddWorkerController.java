@@ -31,7 +31,7 @@ public class AddWorkerController {
         allUser.setUserNickname(request.getUserNickname());
         allUser.setUserAddress(request.getUserAddress());
         allUser.setUserPhoneNumber(request.getUserPhoneNumber());
-        allUser.setUserRole("worker");
+        allUser.setUserRole("Worker");
         allUser.setPlace(addWorkerService.getPlacePKByToken(token));
         
         Worker worker = new Worker();

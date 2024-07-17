@@ -31,7 +31,7 @@ public class SignUpDto {
                 .userAddress(userAddress)
                 .userPhoneNumber(userPhoneNumber)
                 .profileImg(profileImg)
-                .userRole(userRole)
+                .userRole("Master")
                 .build();
     }
 

@@ -31,7 +31,7 @@ public class Takes {
 
     // @Column(name = "takesResult")
     // private String takesResult;
-    LocalDate takesAdddate;
+    private LocalDate takesAdddate;
 
      @OneToMany(mappedBy = "takes", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<Test> tests;

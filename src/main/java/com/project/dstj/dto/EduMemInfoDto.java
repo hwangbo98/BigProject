@@ -10,5 +10,6 @@ import lombok.Data;
 public class EduMemInfoDto {
     private Long userPK;
     private String username;
+    private String userNickname;
     private Long takesPK;
 }

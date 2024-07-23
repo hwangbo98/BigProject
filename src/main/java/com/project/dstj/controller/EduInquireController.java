@@ -26,6 +26,7 @@ public class EduInquireController {
                 .map(takes -> new EduMemInfoDto(
                         takes.getMember().getAlluser().getUserPK(),
                         takes.getMember().getAlluser().getUsername(),
+                        takes.getMember().getAlluser().getUserNickname(),
                         takes.getTakesPK()))
                 .collect(Collectors.toList());
         return new ApiResponse<>(memberDtos);

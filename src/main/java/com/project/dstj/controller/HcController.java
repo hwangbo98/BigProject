@@ -28,6 +28,7 @@ public class HcController {
     public ResponseEntity<Void> addTest(@RequestBody AddHcRequest request){
         Hc hc = new Hc();
         hc.setHcSex(request.getHcSex());
+        hc.setHcJob(request.getHcJob());
         hc.setHcHeight(request.getHcHeight());
         hc.setHcWeight(request.getHcWeight());
         LocalDate hcDate = LocalDate.now();

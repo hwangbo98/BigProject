@@ -2,7 +2,9 @@ package com.project.dstj.request;
 
 public class AddHcRequest {
     private String hcSex; //성별
-    
+
+    private String hcJob; //직업
+
     private Float hcHeight; //키
 
     private Float hcWeight; //몸무게
@@ -23,6 +25,10 @@ public class AddHcRequest {
 
     public String getHcSex(){
         return hcSex;
+    }
+
+    public String getHcJob(){
+        return hcJob;
     }
 
     public Float getHcHeight(){

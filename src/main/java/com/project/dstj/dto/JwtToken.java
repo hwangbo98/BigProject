@@ -13,4 +13,5 @@ public class JwtToken {
     private String refreshToken;
     private String grantedAuthorities;
     private String placeType;  // 추가된 필드
+    private Long userPK;
 }

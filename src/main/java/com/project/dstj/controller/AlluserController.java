@@ -37,4 +37,5 @@ public class AlluserController {
         AlluserDto savedAlluserDto = alluserService.signUp(signUpDto);
         return ResponseEntity.ok(savedAlluserDto);
     }
+    
 }

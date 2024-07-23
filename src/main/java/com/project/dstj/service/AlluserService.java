@@ -49,6 +49,7 @@ public class AlluserService {
             Alluser alluser = alluserOptional.get();
             alluser.setRefreshToken(jwtToken.getRefreshToken());
             jwtToken.setPlaceType(alluser.getPlace().getPlaceType()); // placeType 추가
+            jwtToken.setUserPK(alluser.getUserPK());
             alluserRepository.save(alluser); // 변경 사항을 데이터베이스에 저장
         }
 

@@ -22,6 +22,7 @@ public class UserInfoDto {
     private String profileImg;
     private String userRole; // 권한
     private Long hcPK;
+    private String hcJob;
     private String hcSex;
     private Float hcHeight; //키
     private Float hcWeight; //몸무게

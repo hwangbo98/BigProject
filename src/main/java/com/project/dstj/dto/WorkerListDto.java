@@ -19,8 +19,8 @@ public class WorkerListDto {
     private LocalDate worktimeDay;
     private LocalTime worktimeStart;
     private LocalTime worktimeEnd;
-    private Long placePk;
-    private Long workerPk;
+    private Long placePK;
+    private Long workerPK;
     private Integer workerSalary;
     private String username;
 
@@ -33,8 +33,8 @@ public class WorkerListDto {
             dto.setWorktimeStart(worktime.getWorktimeStart());
             dto.setWorktimeEnd(worktime.getWorktimeEnd());
             dto.setWorkerSalary(worktime.getWorker() != null ? worktime.getWorker().getWorkerSalary() : null);
-            dto.setPlacePk(worktime.getWorker() != null && worktime.getWorker().getAlluser() != null && worktime.getWorker().getAlluser().getPlace() != null ? worktime.getWorker().getAlluser().getPlace().getPlacePK() : null);
-            dto.setWorkerPk(worktime.getWorker() != null ? worktime.getWorker().getWorkerPK() : null);
+            dto.setPlacePK(worktime.getWorker() != null && worktime.getWorker().getAlluser() != null && worktime.getWorker().getAlluser().getPlace() != null ? worktime.getWorker().getAlluser().getPlace().getPlacePK() : null);
+            dto.setWorkerPK(worktime.getWorker() != null ? worktime.getWorker().getWorkerPK() : null);
             dto.setUsername(worktime.getWorker() != null ? worktime.getWorker().getAlluser().getUsername() : null);
         }
         return dto;
@@ -49,14 +49,14 @@ public class WorkerListDto {
         worktime.setWorktimeEnd(this.worktimeEnd);
 
         Worker worker = new Worker();
-        worker.setWorkerPK(this.workerPk);
+        worker.setWorkerPK(this.workerPK);
         worker.setWorkerSalary(this.workerSalary);
 
         Alluser alluser = new Alluser();
         alluser.setUserNickname(this.userNickName);
 
         Place place = new Place();
-        place.setPlacePK(this.placePk);
+        place.setPlacePK(this.placePK);
 
         alluser.setPlace(place);
         worker.setAlluser(alluser);

@@ -22,19 +22,24 @@ public class WorkerListDto {
     private Long placePk;
     private Long workerPk;
     private Integer workerSalary;
+    private String userName;
 
     // Entity -> DTO 변환
     public static WorkerListDto toDto(Worktime worktime) {
         WorkerListDto dto = new WorkerListDto();
-        dto.setUserNickName(worktime.getWorker().getAlluser().getUserNickname());
-        dto.setWorktimeDay(worktime.getWorktimeDay());
-        dto.setWorktimeStart(worktime.getWorktimeStart());
-        dto.setWorktimeEnd(worktime.getWorktimeEnd());
-        dto.setWorkerSalary(worktime.getWorker().getWorkerSalary());
-        dto.setPlacePk(worktime.getWorker().getAlluser().getPlace().getPlacePK());
-        dto.setWorkerPk(worktime.getWorker().getWorkerPK());
+        if (worktime != null) {
+            dto.setUserNickName(worktime.getWorker() != null && worktime.getWorker().getAlluser() != null ? worktime.getWorker().getAlluser().getUserNickname() : null);
+            dto.setWorktimeDay(worktime.getWorktimeDay());
+            dto.setWorktimeStart(worktime.getWorktimeStart());
+            dto.setWorktimeEnd(worktime.getWorktimeEnd());
+            dto.setWorkerSalary(worktime.getWorker() != null ? worktime.getWorker().getWorkerSalary() : null);
+            dto.setPlacePk(worktime.getWorker() != null && worktime.getWorker().getAlluser() != null && worktime.getWorker().getAlluser().getPlace() != null ? worktime.getWorker().getAlluser().getPlace().getPlacePK() : null);
+            dto.setWorkerPk(worktime.getWorker() != null ? worktime.getWorker().getWorkerPK() : null);
+            dto.setUserName(worktime.getWorker()!=null ? worktime.getWorker().getAlluser().getUsername() :null);
+        }
         return dto;
     }
+
 
     // DTO -> Entity 변환
     public Worktime toEntity() {

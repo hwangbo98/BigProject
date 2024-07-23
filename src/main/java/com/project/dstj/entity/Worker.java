@@ -26,4 +26,6 @@ public class Worker {
 
      @OneToMany(mappedBy = "worker")
      private List<Edu> edus;
+
+
 }

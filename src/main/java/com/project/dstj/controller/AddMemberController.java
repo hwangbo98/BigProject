@@ -2,6 +2,7 @@ package com.project.dstj.controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.project.dstj.entity.Alluser;
+import com.project.dstj.entity.Attendance;
 import com.project.dstj.entity.Member;
 import com.project.dstj.request.AddMemberRequest;
 import com.project.dstj.s3.S3Upload;
@@ -47,7 +49,10 @@ public class AddMemberController {
         Member member = new Member();
         member.setSignificant(request.getUserSignificant());
         
-        addMemberService.saveMember(allUser, member);
+        Attendance attendance = new Attendance();
+        attendance.setMember(member);
+        attendance.setCreateDate(LocalDate.now());
+        addMemberService.saveMember(allUser, member, attendance);
 
         return ResponseEntity.ok().build();
     }

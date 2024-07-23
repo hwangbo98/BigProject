@@ -4,9 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.dstj.entity.Alluser;
+import com.project.dstj.entity.Attendance;
 import com.project.dstj.entity.Member;
 import com.project.dstj.entity.Place;
 import com.project.dstj.repository.AlluserRepository;
+import com.project.dstj.repository.AttendanceRepository;
 import com.project.dstj.repository.MemberRepository;
 import com.project.dstj.repository.PlaceRepository;
 import com.project.dstj.security.JwtTokenProvider;
@@ -26,6 +28,9 @@ public class AddMemberService {
     @Autowired
     private PlaceRepository placeRepository;
 
+    @Autowired
+    private AttendanceRepository attendanceRepository;
+
     public Place getPlacePKByToken(String token){
         String loginUser = jwtTokenProvider.getUsernameFromJWT(token);
         Alluser user = allUserRepository.findByUsername(loginUser)
@@ -35,9 +40,11 @@ public class AddMemberService {
         return place;
     }
 
-    public void saveMember(Alluser alluser, Member member){
+    public void saveMember(Alluser alluser, Member member, Attendance attendance){
         Alluser savedAlluser = allUserRepository.save(alluser);
         member.setAlluser(savedAlluser);
-        memberRepository.save(member);
+        Member savedMember = memberRepository.save(member);
+        attendance.setMember(savedMember);;
+        attendanceRepository.save(attendance);
     }
 }

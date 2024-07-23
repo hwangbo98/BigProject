@@ -13,12 +13,14 @@ import java.util.List;
 public class MemberListDto {
     private String userNickname;
     private LocalDate createDate;
+    private String username;
 
     // Entity -> DTO
     public static MemberListDto toDto(Member member, Attendance attendance) {
         MemberListDto dto = new MemberListDto();
         dto.setUserNickname(member.getAlluser().getUserNickname());
         dto.setCreateDate(attendance != null ? attendance.getCreateDate() : null);
+        dto.setUsername(member.getAlluser().getUsername());
         return dto;
     }
 

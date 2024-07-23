@@ -22,6 +22,7 @@ public class WorkerListDto {
     private Long placePk;
     private Long workerPk;
     private Integer workerSalary;
+    private String userName;
 
     // Entity -> DTO 변환
     public static WorkerListDto toDto(Worktime worktime) {
@@ -33,6 +34,7 @@ public class WorkerListDto {
         dto.setWorkerSalary(worktime.getWorker().getWorkerSalary());
         dto.setPlacePk(worktime.getWorker().getAlluser().getPlace().getPlacePK());
         dto.setWorkerPk(worktime.getWorker().getWorkerPK());
+        dto.setUserName(worktime.getWorker().getAlluser().getUsername());
         return dto;
     }
 

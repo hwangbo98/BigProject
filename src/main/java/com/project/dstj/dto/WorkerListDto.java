@@ -22,7 +22,7 @@ public class WorkerListDto {
     private Long placePk;
     private Long workerPk;
     private Integer workerSalary;
-    private String userName;
+    private String username;
 
     // Entity -> DTO 변환
     public static WorkerListDto toDto(Worktime worktime) {

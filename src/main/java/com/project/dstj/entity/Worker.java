@@ -24,6 +24,6 @@ public class Worker {
     @Column(name = "workerSalary")
     private Integer workerSalary; //직원급여
 
-    // @OneToMany(mappedBy = "worker")
-    // private List<Edu> edus;
+     @OneToMany(mappedBy = "worker")
+     private List<Edu> edus;
 }

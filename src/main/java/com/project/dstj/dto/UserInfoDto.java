@@ -54,6 +54,7 @@ public class UserInfoDto {
                 .userRole(alluser.getUserRole())
                 .hcPK(hc != null ? hc.getHcPK() : null)
                 .hcSex(hc != null ? hc.getHcSex() : null)
+                .hcJob(hc != null ? hc.getHcJob() : null)
                 .hcHeight(hc != null ? hc.getHcHeight() : null)
                 .hcWeight(hc != null ? hc.getHcWeight() : null)
                 .hcDate(hc != null ? hc.getHcDate() : null)

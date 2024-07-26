@@ -18,9 +18,6 @@
 <img width="1080" alt="image" src="https://github.com/user-attachments/assets/aa61407c-2336-4531-8e2b-a9b20f105051">
 
 ## 👤 MEMBER 
-[이민희]
-![rose](https://github.com/user-attachments/assets/769f5bd7-a8a6-4192-a95a-a442bb01f178)
-
 
 
 ## 🛠️ Tech Stack

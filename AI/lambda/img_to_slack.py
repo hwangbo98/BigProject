@@ -11,7 +11,7 @@ def lambda_handler(event, context):
     collection_id = 'employees-faces'
     
     # Slack Webhook URL
-    webhook_url = 'https://hooks.slack.com/services/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'
+    webhook_url = ''
     
     if 'Records' not in event:
         return {
